@@ -10,11 +10,16 @@ Route::get('/', function () {
     return Inertia::render('Home');
 });
 
+Route::get('/layout', function () {
+    return Inertia::render('Welcome');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::post('/generate-lyrics', [LyricsController::class, 'generate']);
+Route::post('/generate-lyrics', [LyricsController::class, 'generateLyrics']);
+Route::post('/generate-jingle', [LyricsController::class, 'generateAudio']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

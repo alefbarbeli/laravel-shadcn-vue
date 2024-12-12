@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 class LyricsController extends Controller
 {
-    public function generate(Request $request)
+    public function generateLyrics(Request $request)
     {
         $text = $request->input('text');
 
