@@ -55,6 +55,8 @@ class LyricsController extends Controller
 
     private function handleErrorResponse($response)
     {
+        return response()->json($response->json());
+        
         switch ($response->status()) {
             case 400:
                 return response()->json(['success' => false, 'message' => 'Bad request. Please check your input.']);
